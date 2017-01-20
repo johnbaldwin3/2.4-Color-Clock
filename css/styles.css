@@ -48,6 +48,7 @@ h1 {
   text-align: center;
   border-radius: 5px;
   line-height: 0.3em;
-  background-color: #FFF; }
+  background-color: #FFF;
+  box-shadow: 4px 4px 10px #522D80; }
 
 /*# sourceMappingURL=styles.css.map */

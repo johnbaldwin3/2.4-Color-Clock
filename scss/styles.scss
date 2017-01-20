@@ -1,0 +1,64 @@
+/*body {
+background-color: white;
+background: radial-gradient(orange);
+}*/
+
+/*body {
+background-color: white;
+background: radial-gradient(orange);
+}*/
+/************************
+variables
+************************/
+$back-color: #000000;
+$white: #FFF;
+$clemson: #F66733;
+
+/************************
+Body Styles
+************************/
+body {
+  font-family: 'Bonbon', cursive;
+
+  background-color: #F66733;
+
+}
+
+/************************
+Clock Style
+************************/
+header {
+  text-align: center;
+  font-family: 'Fontdiner Swanky', cursive;
+  font-size: 60px;
+  color: $white;
+  margin-top: 18%;
+  text-shadow: 4px 4px 10px #522D80;
+}
+h1 {
+  margin-top: 3%;
+  font-size: 80px;
+  text-align: center;
+  color: $white;
+  text-shadow: 10px 10px 20px #522D80;
+
+  &:hover {
+    color: #522D80;
+    text-shadow: 10px 10px 20px $white;
+  }
+}
+
+
+
+.hours::after, .minutes::after {
+  content: ":";
+  padding-left: 40px;
+}
+
+#timer-bar {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 0.3em;
+  background-color: $white;
+}

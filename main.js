@@ -28,17 +28,17 @@ function currentTime(){
   minutesVar = getTime.getMinutes();
   secondsVar = getTime.getSeconds();
 
+  console.log('mady', ("0" + secondsVar.toString("16")).slice(-2));
+
   hours.textContent = ("0" + hoursVar).slice(-2);
   minutes.textContent = ("0" + minutesVar).slice(-2);
   seconds.textContent = ("0" + secondsVar).slice(-2);
 
   // console.log(secondsVar);
 
-  var secondsVarDec = secondsVar / 60;
-
-  timeBar.style.width = secondsVarDec;
-
-  console.log(secondsVarDec);
+  timeBar.style.width = secondsVar.toString() + "%";
+  //
+  // console.log(secondsVarDec);
 
 
 }

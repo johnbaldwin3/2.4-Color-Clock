@@ -9,6 +9,7 @@ console.log("say stuff");
   var hoursVar;
   var minutesVar;
   var secondsVar;
+  var theTime = document.querySelector('.the-time')
   var hours = document.querySelector('.the-time .hours');
   var minutes= document.querySelector('.the-time .minutes');
   var seconds = document.querySelector('.the-time .seconds');
@@ -20,6 +21,16 @@ console.log("say stuff");
   var hexHours;
   var hexColor;
 
+  var hexTen;
+  var hexNine;
+  var hexEight;
+  var hexSeven;
+  var hexSix;
+  var hexFive;
+  var hexFour;
+  var hexThree;
+  var hexTwo;
+  var hexOne;
 window.setInterval(currentTime, 1000);
 
 function timerBarAdder() {
@@ -54,10 +65,36 @@ function currentTime(){
 //console was able to log hex value for seconds
   // console.log(hexSeconds, "john");
   // able to log hexColor
-  console.log(hexColor, "john");
+  // console.log(hexColor, "john");
 
-  docBody.style.backgroundColor = hexColor;
+  hexTen = hexNine;
+  hexNine = hexEight;
+  hexEight = hexSeven;
+  hexSeven = hexSix;
+  hexSix = hexFive;
+  hexFive = hexFour;
+  hexFour = hexThree;
+  hexThree = hexTwo;
+  hexTwo = hexOne;
+  hexOne = hexColor;
 
+  docBody.style.backgroundImage = 'repeating-radial-gradient('+hexColor+','+hexThree+','+hexSix+','+hexNine+',' + hexTen+')';
+
+
+// docBody.style.backgroundImage ='repeating-radial-gradient(circle at 0% 50%,' + hexColor + '0px,' + hexColor + '20px,' + hexTen + '20px,' + hexTen + '40px)';
+  // console.log(hexFour, hexThree, hexTwo, hexOne, hexColor, "john");
+
+  // console.log('repeating-radial-gradient(circle,'+hexColor+' 10px,'+hexThree+','+hexSix+' 20px,'+hexNine+',' + hexTen+'10px)')
+
+  // docBody.style.backgroundColor = hexColor;
+
+  theTime.addEventListener('mouseover', function(){
+
+    hours.textContent = hexHours;
+    seconds.textContent = hexSeconds;
+    minutes.textContent = hexMinutes;
+
+  })
 }
 
 

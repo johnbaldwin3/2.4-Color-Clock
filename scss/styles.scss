@@ -17,10 +17,13 @@ $clemson: #F66733;
 /************************
 Body Styles
 ************************/
-body {
+body{
   font-family: 'Bonbon', cursive;
-
-  // background-color: #F66733;
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  background-color: gray;
+  height: 100%;
   // background-size: cover;
   // background-repeat: no-repeat;
 
@@ -45,7 +48,7 @@ h1 {
   text-shadow: 10px 10px 20px #522D80;
 
   &:hover {
-    color: #522D80;
+    color: #F66733;
     text-shadow: 10px 10px 20px $white;
   }
 }
@@ -61,6 +64,7 @@ h1 {
   max-width: 800px;
   margin: 0 auto;
   margin-top: 1px;
+  // margin-bottom: 400px;
   text-align: center;
   border-radius: 5px;
   line-height: 0.3em;

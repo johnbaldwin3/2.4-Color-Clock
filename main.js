@@ -78,8 +78,9 @@ function currentTime(){
   hexTwo = hexOne;
   hexOne = hexColor;
 
-  docBody.style.backgroundImage = 'repeating-radial-gradient('+hexColor+','+hexThree+','+hexSix+','+hexNine+',' + hexTen+')';
+  docBody.style.backgroundImage = 'repeating-radial-gradient('+hexColor+' 1%,' +hexOne+' 3%,'+hexTwo+' 5%,'+hexThree+' 8%,'+hexFour+' 12%,'+hexSix +' 13%,'+hexSeven+' 14%,'+hexEight+' 15%,' + hexNine+' 16%)';
 
+ // docBody.style.backgroundImage = 'repeating-radial-gradient('+hexColor+' ,' +hexOne+' 15%,' + hexThree +' 20%)';
 
 // docBody.style.backgroundImage ='repeating-radial-gradient(circle at 0% 50%,' + hexColor + '0px,' + hexColor + '20px,' + hexTen + '20px,' + hexTen + '40px)';
   // console.log(hexFour, hexThree, hexTwo, hexOne, hexColor, "john");
@@ -90,9 +91,11 @@ function currentTime(){
 
   theTime.addEventListener('mouseover', function(){
 
+
     hours.textContent = hexHours;
     seconds.textContent = hexSeconds;
     minutes.textContent = hexMinutes;
+
 
   })
 }

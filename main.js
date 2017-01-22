@@ -60,7 +60,7 @@ function currentTime(){
   hexMinutes = ("0" + minutesVar.toString("16")).slice(-2);
   hexHours = ("0" + hoursVar.toString("16")).slice(-2);
 
-  hexColor = ('#' + hexHours + hexMinutes + hexSeconds);
+  hexColor = ('#' + hexSeconds + hexMinutes  + hexHours);
 
 //console was able to log hex value for seconds
   // console.log(hexSeconds, "john");

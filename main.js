@@ -82,7 +82,7 @@ function currentTime(){
 
 //applying gradient in a radial style with hex colors
   docBody.style.backgroundImage = 'repeating-radial-gradient('+hexColor+' 1%,' +hexOne+' 3%,'+hexTwo+' 5%,'+hexThree+' 8%,'+hexFour+' 12%,'+hexSix +' 13%,'+hexSeven+' 14%,'+hexEight+' 15%,' + hexNine+' 16%)';
-/
+
 //mouse out and mouse over testing
   if (isHovering) {
     hours.textContent = hexSeconds;

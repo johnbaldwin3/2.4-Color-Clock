@@ -1,9 +1,9 @@
-console.log("hello");
+
 
 (function(){
   "use strict";
 
-console.log("say stuff");
+//variable assignments
 
   var getTime = new Date();
   var hoursVar;
@@ -15,12 +15,11 @@ console.log("say stuff");
   var seconds = document.querySelector('.the-time .seconds');
   var timeBar = document.getElementById('timer-bar');
   var docBody = document.querySelector('body');
-
+  var isHovering = false;
   var hexSeconds;
   var hexMinutes;
   var hexHours;
   var hexColor;
-
   var hexTen;
   var hexNine;
   var hexEight;
@@ -31,42 +30,45 @@ console.log("say stuff");
   var hexThree;
   var hexTwo;
   var hexOne;
-window.setInterval(currentTime, 1000);
 
-function timerBarAdder() {
-  timeBar.textContent += '-';
-  window.setInterval(currentTime, 1000);
-}
 
 function currentTime(){
-
+//getting the time set to variables
   getTime = new Date();
   hoursVar = getTime.getHours();
   minutesVar = getTime.getMinutes();
   secondsVar = getTime.getSeconds();
 
-  // console.log('mady', ("0" + secondsVar.toString("16")).slice(-2));
-
+//setting the time.. padding with 0
   hours.textContent = ("0" + hoursVar).slice(-2);
   minutes.textContent = ("0" + minutesVar).slice(-2);
   seconds.textContent = ("0" + secondsVar).slice(-2);
 
-  // console.log(secondsVar);
 
+//setting Timer Bar to incrementally increase as a percentage based on seconds
   timeBar.style.width = secondsVar.toString() + "%";
-  //
-  // console.log(secondsVarDec);
-  hexSeconds = ("0" + secondsVar.toString("16")).slice(-2);
-  hexMinutes = ("0" + minutesVar.toString("16")).slice(-2);
-  hexHours = ("0" + hoursVar.toString("16")).slice(-2);
 
-  hexColor = ('#' + hexSeconds + hexMinutes  + hexHours);
 
-//console was able to log hex value for seconds
-  // console.log(hexSeconds, "john");
-  // able to log hexColor
-  // console.log(hexColor, "john");
+  //Setting times to colors
+  hexSeconds = secondsVar.toString(16);
+  hexMinutes = minutesVar.toString(16);
+  hexHours = hoursVar.toString(16);
 
+//adding a character if hex value only holds one spot
+  if(hexSeconds.length == 1) {
+    hexSeconds+= hexSeconds;
+  }
+  if(hexMinutes.length == 1) {
+    hexMinutes+= hexMinutes;
+  }
+  if(hexHours.length == 1){
+    hexHours += 0;
+  }
+
+
+
+  hexColor = ('#' + hexSeconds  + hexMinutes + hexHours);
+  //setting up chain of hex colors to create bigger gradient
   hexTen = hexNine;
   hexNine = hexEight;
   hexEight = hexSeven;
@@ -78,29 +80,40 @@ function currentTime(){
   hexTwo = hexOne;
   hexOne = hexColor;
 
+//applying gradient in a radial style with hex colors
   docBody.style.backgroundImage = 'repeating-radial-gradient('+hexColor+' 1%,' +hexOne+' 3%,'+hexTwo+' 5%,'+hexThree+' 8%,'+hexFour+' 12%,'+hexSix +' 13%,'+hexSeven+' 14%,'+hexEight+' 15%,' + hexNine+' 16%)';
-
- // docBody.style.backgroundImage = 'repeating-radial-gradient('+hexColor+' ,' +hexOne+' 15%,' + hexThree +' 20%)';
-
-// docBody.style.backgroundImage ='repeating-radial-gradient(circle at 0% 50%,' + hexColor + '0px,' + hexColor + '20px,' + hexTen + '20px,' + hexTen + '40px)';
-  // console.log(hexFour, hexThree, hexTwo, hexOne, hexColor, "john");
-
-  // console.log('repeating-radial-gradient(circle,'+hexColor+' 10px,'+hexThree+','+hexSix+' 20px,'+hexNine+',' + hexTen+'10px)')
-
-  // docBody.style.backgroundColor = hexColor;
-
-  theTime.addEventListener('mouseover', function(){
-
-
-    hours.textContent = hexHours;
-    seconds.textContent = hexSeconds;
+/
+//mouse out and mouse over testing
+  if (isHovering) {
+    hours.textContent = hexSeconds;
     minutes.textContent = hexMinutes;
+    seconds.textContent = hexHours;
+
+  } else {
+
+    hours.textContent = ("0" + hoursVar).slice(-2);
+    minutes.textContent = ("0" + minutesVar).slice(-2);
+    seconds.textContent = ("0" + secondsVar).slice(-2);
+
+  }
 
 
-  })
 }
+//setting up event listeners for mouse out and mouse over
+theTime.addEventListener('mouseover', handleMouseOver);
+theTime.addEventListener('mouseout', handleMouseOut);
+
+function handleMouseOver() {
+  isHovering = true;
+};
+
+function handleMouseOut() {
+  isHovering = false;
+};
 
 
 
-currentTime();
+
+window.setInterval(currentTime, 500);
+// currentTime();
 }());
